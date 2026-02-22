@@ -1,9 +1,9 @@
 import { html, nothing } from "lit";
-import type { ChannelUiMetaEntry, CronJob, CronRunLogEntry, CronStatus } from "../types.ts";
-import type { CronFormState } from "../ui-types.ts";
 import { formatRelativeTimestamp, formatMs } from "../format.ts";
 import { pathForTab } from "../navigation.ts";
 import { formatCronSchedule, formatNextRun } from "../presenter.ts";
+import type { ChannelUiMetaEntry, CronJob, CronRunLogEntry, CronStatus } from "../types.ts";
+import type { CronFormState } from "../ui-types.ts";
 
 export type CronProps = {
   basePath: string;
@@ -333,7 +333,7 @@ export function renderCron(props: CronProps) {
                 <div class="muted" style="margin-top: 12px">No runs yet.</div>
               `
             : html`
-              <div class="list" style="margin-top: 12px;">
+              <div class="list list-scroll" style="margin-top: 12px;">
                 ${orderedRuns.map((entry) => renderRun(entry, props.basePath))}
               </div>
             `
